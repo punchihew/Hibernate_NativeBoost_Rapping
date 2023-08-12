@@ -18,8 +18,8 @@ public class Iteam {
     @Column(name = "unit_price")
      private double unitPrize;
 
-    @ManyToMany(mappedBy = "iteams")
-    private List<Order> orders = new ArrayList<>();
+//    @ManyToMany(mappedBy = "iteams")
+//    private List<Order> orders = new ArrayList<>();
 
     private Iteam(){}
 
