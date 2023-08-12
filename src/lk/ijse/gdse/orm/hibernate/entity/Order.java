@@ -3,6 +3,8 @@ package lk.ijse.gdse.orm.hibernate.entity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "`order`")
@@ -17,6 +19,10 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "customer_Id")
     private Customer customer;
+
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "")
+    private List<iteam> iteams = new ArrayList<>();
+
     public Order(){}
 
     public int getId() {
