@@ -1,24 +1,29 @@
 package lk.ijse.gdse.orm.hibernate.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table (name = "Iteam")
-public class iteam {
+public class Iteam {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "iteam_id")
-     private String name;
-    @Column(name ="iteam_name")
      private int id;
+    @Column(name ="iteam_name")
+     private String name;
     @Column(name = "qty")
      private int qty;
     @Column(name = "unit_price")
      private double unitPrize;
 
-    private iteam(){}
+    @ManyToMany(mappedBy = "iteams")
+    private List<Order> orders = new ArrayList<>();
 
-    public iteam(String name, int id, int qty, double unitPrize) {
+    private Iteam(){}
+
+    public Iteam(String name, int id, int qty, double unitPrize) {
         this.name = name;
         this.id = id;
         this.qty = qty;

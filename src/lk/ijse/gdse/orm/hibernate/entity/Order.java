@@ -20,8 +20,8 @@ public class Order {
     @JoinColumn(name = "customer_Id")
     private Customer customer;
 
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "")
-    private List<iteam> iteams = new ArrayList<>();
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private List<Iteam> iteams = new ArrayList<>();
 
     public Order(){}
 
