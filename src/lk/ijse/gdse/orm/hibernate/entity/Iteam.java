@@ -21,6 +21,9 @@ public class Iteam {
 //    @ManyToMany(mappedBy = "iteams")
 //    private List<Order> orders = new ArrayList<>();
 
+    @OneToMany (cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "iteam")
+    private List<Order_detail> orderDetails = new ArrayList<>();
+
     private Iteam(){}
 
     public Iteam(String name, int id, int qty, double unitPrize) {

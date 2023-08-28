@@ -3,9 +3,10 @@ package lk.ijse.gdse.orm.hibernate.embedded;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
+import java.io.Serializable;
 
 @Embeddable
-public class OrderDetailPK {
+public class OrderDetailPK implements Serializable {
 
     @Column(name = "order_id")
     private int order_id;

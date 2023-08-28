@@ -2,10 +2,7 @@ package lk.ijse.gdse.orm.hibernate.entity;
 
 import lk.ijse.gdse.orm.hibernate.embedded.OrderDetailPK;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "order_details")
@@ -20,5 +17,54 @@ public class Order_detail {
     @Column (name = "order_price")
     private double price;
 
+    @ManyToOne
+    @JoinColumn(name = "order_id",referencedColumnName = "order_id" ,
+            insertable = false ,updatable = false)
+    private Order order ;
 
+    @OneToMany
+    @JoinColumn(name = "iteam_id",referencedColumnName = "iteam_id",
+            insertable = false,updatable = false)
+    private Iteam iteam ;
+
+    public Order_detail(){}
+
+    public Order_detail(OrderDetailPK orderDetailPK, int qty, double price) {
+        this.orderDetailPK = orderDetailPK;
+        this.qty = qty;
+        this.price = price;
+    }
+
+    public OrderDetailPK getOrderDetailPK() {
+        return orderDetailPK;
+    }
+
+    public void setOrderDetailPK(OrderDetailPK orderDetailPK) {
+        this.orderDetailPK = orderDetailPK;
+    }
+
+    public int getQty() {
+        return qty;
+    }
+
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Order_detail{" +
+                "orderDetailPK=" + orderDetailPK +
+                ", qty=" + qty +
+                ", price=" + price +
+                '}';
+    }
 }

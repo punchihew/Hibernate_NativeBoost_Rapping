@@ -23,6 +23,9 @@ public class Order {
 //    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 //    private List<Iteam> iteams = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "order")
+    private List<Order_detail> orderDetails = new ArrayList<>();
+
     public Order(){}
 
     public int getId() {
